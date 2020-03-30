@@ -12,3 +12,19 @@ export const UserList = styled.ul`
   width: 100%;
   max-width: 900px;
 `;
+
+export const Empty = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 50px auto;
+  height: 60vh;
+  width: 100%;
+  max-width: 900px;
+
+  strong {
+    font-size: 24px;
+    color: #999;
+  }
+`;

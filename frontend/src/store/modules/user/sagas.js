@@ -27,13 +27,11 @@ export function* updateUser({ payload }) {
   const { id, name, email, bio } = payload.data;
 
   try {
-    const response = yield call(api.put, `/users/${id}`, {
+    yield call(api.put, `/users/${id}`, {
       name,
       email,
       bio,
     });
-
-    console.tron.log(response.data);
 
     yield put(updateUserSuccess());
     toast.success('Usuário atualizado com sucesso!');

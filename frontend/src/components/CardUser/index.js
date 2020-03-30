@@ -30,9 +30,14 @@ export default function CardUser({ user, handleDetele }) {
     history.push(`/details/${user.id}`);
   }
 
-  const handleClose = () => {
+  function handleClose() {
     setOpen(false);
-  };
+  }
+
+  async function handlePress() {
+    await handleDetele(user.id);
+    setOpen(false);
+  }
 
   return (
     <Card>
@@ -79,11 +84,7 @@ export default function CardUser({ user, handleDetele }) {
           <Button onClick={handleClose} color="secondary">
             Cancelar
           </Button>
-          <Button
-            onClick={() => handleDetele(user.id)}
-            color="primary"
-            autoFocus
-          >
+          <Button onClick={handlePress} color="primary" autoFocus>
             Deletar
           </Button>
         </DialogActions>

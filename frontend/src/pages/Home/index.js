@@ -5,7 +5,7 @@ import { ptBR } from 'date-fns/locale';
 
 import { toast } from 'react-toastify';
 
-import { Container, UserList } from './styles';
+import { Container, UserList, Empty } from './styles';
 
 import UserCard from '~/components/CardUser';
 
@@ -47,11 +47,17 @@ export default function Home() {
   return (
     <Container>
       <Header />
-      <UserList>
-        {users.map((user) => (
-          <UserCard handleDetele={handleDelete} user={user} />
-        ))}
-      </UserList>
+      {users.length <= 0 ? (
+        <Empty>
+          <strong>Não há usuários para listar.</strong>
+        </Empty>
+      ) : (
+        <UserList>
+          {users.map((user) => (
+            <UserCard handleDetele={handleDelete} user={user} />
+          ))}
+        </UserList>
+      )}
     </Container>
   );
 }
