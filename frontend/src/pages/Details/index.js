@@ -91,7 +91,9 @@ export default function Details() {
               variant="outlined"
             />
 
-            <Button color="primary">Editar</Button>
+            <Button type="submit" color="primary">
+              Editar
+            </Button>
           </FormContainer>
         </Form>
       </Formik>

@@ -25,61 +25,24 @@ class UserController {
   async store({ request, response }) {
     const body = request.all();
 
-    const avatar = request.file("avatar", {
-      types: ["image"],
-      size: ["3mb"]
-    });
-
-    if (avatar) {
-      await avatar.move(Helpers.tmpPath("uploads"), {
-        name: `${new Date().getTime()}.${avatar.subtype}`
-      });
-
-      if (!avatar.moved()) {
-        return avatar.error();
-      }
-    }
-
     const userExists = await User.findBy("email", body.email);
 
     if (userExists) {
       return response.status(400).json({ error: "User already exists" });
     }
 
-    const data = {
-      ...body,
-      avatar: avatar ? avatar.fileName : ""
-    };
-
-    const user = await User.create(data);
+    const user = await User.create(body);
 
     return response.status(201).json(user);
   }
 
-  async update({ request, params }) {
+  async update({ request, params, response }) {
     const data = request.only(["name", "email", "gender", "born_date"]);
 
     const user = await User.find(params.id);
 
     if (!user) {
       return response.status(400).json({ error: "user not found" });
-    }
-
-    const avatar = request.file("avatar", {
-      types: ["image"],
-      size: ["3mb"]
-    });
-
-    if (avatar) {
-      await avatar.move(Helpers.tmpPath("uploads"), {
-        name: `${new Date().getTime()}.${avatar.subtype}`
-      });
-
-      if (!avatar.moved()) {
-        return avatar.error();
-      }
-
-      user.avatar = avatar;
     }
 
     user.merge(data);

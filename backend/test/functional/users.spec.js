@@ -33,19 +33,14 @@ test("it should be show only user", async ({ assert, client }) => {
 test("it shuold be create a user", async ({ assert, client }) => {
   const user = await Factory.model("App/Models/User").make();
 
-  const data = {
-    ...user.$attributes,
-    avatar: Helpers.tmpPath("test/avatar.jpg")
-  };
-
   const response = await client
     .post(`/users`)
-    .send(data)
+    .send(user.$attributes)
     .end();
 
   response.assertStatus(201);
 
-  assert.exists(response.body.avatar);
+  assert.exists(response.body.id);
 });
 
 test("it shuold be update a user a user", async ({ assert, client }) => {
@@ -54,12 +49,10 @@ test("it shuold be update a user a user", async ({ assert, client }) => {
   const response = await client
     .put(`users/${user.id}`)
     .field("name", "Rennan")
-    .attach("avatar", Helpers.tmpPath("test/avatar.jpg"))
     .end();
 
   response.assertStatus(200);
   assert.equal(response.body.name, "Rennan");
-  assert.exists(response.body.avatar);
 });
 
 test("it should be remove a user", async ({ client, assert }) => {
