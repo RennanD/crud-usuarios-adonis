@@ -3,7 +3,7 @@
 </h1>
 
 <h2 align="center">
-    CRUD USERS - UserS CRUD using AdonisJs and React Js
+    CRUD USERS - Users CRUD using AdonisJs and React Js
 </h2>
 
 <h3 >
