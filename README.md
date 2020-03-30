@@ -123,13 +123,15 @@ $ adonis serve --dev
 
   - Body
 
+    ```json
     {
-    "name": "",
-    "email": "",
-    "gender": "",
-    "born_date": "",
-    "bio": ""
+      "name": "",
+      "email": "",
+      "gender": "",
+      "born_date": "",
+      "bio": ""
     }
+    ```
 
   - Response 201 (appication/json)
     - Attributes (Users)
@@ -147,9 +149,11 @@ $ adonis serve --dev
     /users/user_id"
 
   - Body
+    ```json
     {
-    "name": "",
+      "name": ""
     }
+    ```
 
 - Response 200 (appication/json)
   - Attributes (Users)
