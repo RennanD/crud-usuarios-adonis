@@ -15,6 +15,7 @@ class UserSchema extends Schema {
         .unique();
       table.string("gender").notNullable();
       table.date("born_date").notNullable();
+      table.text("bio").notNullable();
       table.timestamps();
     });
   }

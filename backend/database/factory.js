@@ -19,6 +19,7 @@ Factory.blueprint("App/Models/User", faker => {
     name: faker.name(),
     email: faker.email(),
     gender: faker.gender(),
-    born_date: faker.birthday()
+    born_date: faker.birthday(),
+    bio: faker.paragraph()
   };
 });
