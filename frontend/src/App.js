@@ -1,16 +1,22 @@
 import React from 'react';
 
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import './config/reactotronConfig';
 
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 
+import { persistor, store } from './store';
+
 export default function App() {
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Routes />
-      <GlobalStyle />
-    </MuiPickersUtilsProvider>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Routes />
+        <GlobalStyle />
+      </PersistGate>
+    </Provider>
   );
 }
