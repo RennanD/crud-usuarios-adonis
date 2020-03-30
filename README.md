@@ -204,7 +204,7 @@ $ adonis serve --dev
 
 Open a new tab or window in the terminal, and run:
 
-```bash
+```
 $ cd frontend
 $ yarn
 $ yarn start
@@ -212,7 +212,7 @@ $ yarn start
 
 Or using npm:
 
-```bash
+```
 $ cd frontend
 $ npm install
 $ npm start
@@ -221,5 +221,5 @@ $ npm start
 # Demo Web app
 
 <h1 align="center">
-<img src ="./github/crud-usuarios.gif" width="700px">
+<img src ="./.github/crud-usuarios.gif" width="700px">
 </h1>
