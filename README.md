@@ -146,7 +146,9 @@ $ adonis serve --dev
 
   - Route Params
 
-    /users/user_id"
+    ```js
+    "/users/user_id";
+    ```
 
   - Body
     ```json
