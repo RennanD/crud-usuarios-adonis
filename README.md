@@ -59,8 +59,8 @@ $ docker start "CONTAINER_ID"
 
 ## Envaironments variables
 
-In backend folder, create in root folder a .env file.
-Use the .env.example file as the basis for the .env file.
+- In backend folder, create in root folder a .env file.
+- Use the .env.example file as the basis for the .env file.
 
 ## Now in your terminal, run:
 
