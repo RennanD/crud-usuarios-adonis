@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { useParams } from 'react-router-dom';
 
-import { parseISO } from 'date-fns';
-
-import { MenuItem, Button } from '@material-ui/core';
-
 import { Form, Formik } from 'formik';
 
-import { Container, FormContainer, InputGroup, SelectInput } from './styles';
+import { Button } from '@material-ui/core';
+import { Container, FormContainer } from './styles';
 
 import Header from '~/components/Header';
 import Input from '~/components/Form/Input';
 
 import api from '~/services/api';
 
+import { updateUserRequest } from '~/store/modules/user/actions';
+
 export default function Details() {
-  const [gender, setGender] = useState('');
   const [user, setUser] = useState();
 
   const params = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function loadUser() {
@@ -28,8 +28,6 @@ export default function Details() {
       const data = {
         name: response.data.name,
         email: response.data.email,
-        gender: response.data.gender,
-        born_date: response.data.born_date,
         bio: response.data.bio,
       };
 
@@ -38,7 +36,14 @@ export default function Details() {
     loadUser();
   }, [params]);
 
-  function handleSubmit(values) {}
+  function handleSubmit(values) {
+    const data = {
+      ...values,
+      id: params.id,
+    };
+
+    dispatch(updateUserRequest(data));
+  }
 
   return (
     <Container>
@@ -58,15 +63,14 @@ export default function Details() {
                 type="text"
                 variant="outlined"
               />
-              <InputGroup>
-                <Input
-                  name="email"
-                  id="outlined-search"
-                  label="E-mail"
-                  type="email"
-                  variant="outlined"
-                />
-              </InputGroup>
+              <Input
+                style={{ marginTop: 23, marginBottom: 23 }}
+                name="email"
+                id="outlined-search"
+                label="E-mail"
+                type="email"
+                variant="outlined"
+              />
 
               <Input
                 name="bio"
