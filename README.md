@@ -95,6 +95,11 @@ $ adonis serve --dev
 
 - Requets
 
+- Headers
+
+  - Accept: application/json
+  - Content-Type: application/json
+
   - Route Params
     ```js
     "/users/user_id";
@@ -111,43 +116,40 @@ $ adonis serve --dev
 
 - Request register new user
 
-      - Headers
-          Accept: application/json
-          Content-Type: application/json
+  - Headers
 
-      - Body
-        ```json
-        {
-          "name": "",
-          "email": "",
-          "gender": "",
-          "born_date": "",
-          "bio": ""
-        }
-        ```
+    - Accept: application/json
+    - Content-Type: application/json
 
-- Response 201 (appication/json)
-  - Attributes (Users)
+  - Body
+
+    {
+    "name": "",
+    "email": "",
+    "gender": "",
+    "born_date": "",
+    "bio": ""
+    }
+
+  - Response 201 (appication/json)
+    - Attributes (Users)
 
 ### Update user [PUT]
 
 - Request register new user
 
-      - Headers
-          Accept: application/json
-          Content-Type: application/json
+  - Headers
+    Accept: application/json
+    Content-Type: application/json
 
-      - Route Params
-      ```js
-        "/users/user_id";
-      ```
+  - Route Params
 
-      - Body
-        ```json
-        {
-          "name": "",
-        }
-        ```
+    /users/user_id"
+
+  - Body
+    {
+    "name": "",
+    }
 
 - Response 200 (appication/json)
   - Attributes (Users)
