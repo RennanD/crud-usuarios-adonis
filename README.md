@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="./.github/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6a736e6f6d61642f696d6167652f75706c6f61642f76313534373035303430392f61646f6e69736a732d72656163742e706e67.png" width="200px" >
+    <img src="./.github/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6a736e6f6d61642f696d6167652f75706c6f61642f76313534373035303430392f61646f6e69736a732d72656163742e706e67.png" width="300px" >
 </h1>
 
 <h2 align="center">
@@ -76,9 +76,7 @@ $ adonis test
 $ adonis serve --dev
 ```
 
-## API Routes:
-
-# User group
+# API Routes:
 
 ## Users [/users]
 
@@ -177,3 +175,37 @@ $ adonis serve --dev
 
 - Response 204 (appication/json)
   - Attributes (Success)
+
+# 💻 Web Application
+
+<h1 align="center">
+    <img src ="https://github.com/RennanD/Marketbook/blob/master/assets/browser.svg" width="150px" />
+</h1>
+
+<h3 align="center">
+    Application that consumes our api rest with Adonis.
+</h3>
+
+## ⚡️ Start
+
+Open a new tab or window in the terminal, and run:
+
+```bash
+$ cd frontend
+$ yarn
+$ yarn start
+```
+
+Or using npm:
+
+```bash
+$ cd frontend
+$ npm install
+$ npm start
+```
+
+# Demo Web app
+
+<h1 align="center">
+<img src ="./github/crud-usuarios.gif" width="700px">
+</h1>
