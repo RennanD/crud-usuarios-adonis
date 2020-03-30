@@ -57,6 +57,11 @@ $ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postg
 $ docker start "CONTAINER_ID"
 ```
 
+## Envaironments variables
+
+In backend folder, create in root folder a .env file.
+Use the .env.example file as the basis for the .env file.
+
 ## Now in your terminal, run:
 
 ```
@@ -75,6 +80,8 @@ $ adonis test
 ```
 $ adonis serve --dev
 ```
+
+- Use [this host](http://localhost:3333) to run your API;
 
 # API Routes:
 
