@@ -66,6 +66,13 @@ $ docker start "CONTAINER_ID"
 
 ```
 $ cd backend
+
+# using Yarn
+$ yarn
+
+# using Npm
+$ npm install
+
 $ adonis migration:run
 ```
 
