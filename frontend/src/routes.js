@@ -9,7 +9,7 @@ export default function src() {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/details" exact component={Details} />
+      <Route path="/details/:id" exact component={Details} />
       <Route path="/new-user" exact component={NewUser} />
     </Switch>
   );

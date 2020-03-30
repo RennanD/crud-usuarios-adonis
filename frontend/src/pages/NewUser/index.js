@@ -63,12 +63,12 @@ export default function NewUser() {
                 onChange={(e) => setGender(e.target.value)}
                 variant="outlined"
               >
-                <MenuItem value="">
-                  <em>None</em>
+                <MenuItem value={0}>
+                  <em>Selecione um genero</em>
                 </MenuItem>
-                <MenuItem value={0}>Masculino</MenuItem>
-                <MenuItem value={1}>Feminino</MenuItem>
-                <MenuItem value={2}>Outro</MenuItem>
+                <MenuItem value={1}>Masculino</MenuItem>
+                <MenuItem value={2}>Feminino</MenuItem>
+                <MenuItem value={3}>Outro</MenuItem>
               </SelectInput>
 
               <Input

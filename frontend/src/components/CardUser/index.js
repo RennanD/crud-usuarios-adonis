@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
 import { DeleteForever, Edit } from '@material-ui/icons';
 
-import { Card, CardHeader, CardContent, Typography } from '@material-ui/core/';
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  Typography,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Button,
+} from '@material-ui/core/';
 
-import { ActionView, Avatar, ActionButton } from './styles';
+import PropTypes from 'prop-types';
 
-export default function CardUser() {
+import { ActionView, Avatar, ActionButton, Content } from './styles';
+
+export default function CardUser({ user, handleDetele }) {
+  const [open, setOpen] = useState(false);
+
   const history = useHistory();
 
   function handleNavigate() {
-    history.push('/details');
+    history.push(`/details/${user.id}`);
   }
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Card>
@@ -21,18 +40,13 @@ export default function CardUser() {
         avatar={
           <Avatar src="https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder.gif" />
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={user.name}
+        subheader={`${user.email} - ${user.dateFormatted}`}
       />
 
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
-        </Typography>
         <ActionView>
-          <ActionButton color="secondary">
+          <ActionButton onClick={() => setOpen(true)} color="secondary">
             <DeleteForever fontSize="small" color="secondary" />
             Deletar
           </ActionButton>
@@ -41,7 +55,44 @@ export default function CardUser() {
             Editar
           </ActionButton>
         </ActionView>
+
+        <Content>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {user.bio}
+          </Typography>
+        </Content>
       </CardContent>
+
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">Opa, cuidado!!</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Deseja realmente excluir esse usuário?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="secondary">
+            Cancelar
+          </Button>
+          <Button
+            onClick={() => handleDetele(user.id)}
+            color="primary"
+            autoFocus
+          >
+            Deletar
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Card>
   );
 }
+
+CardUser.propTypes = {
+  user: PropTypes.shape().isRequired,
+  handleDetele: PropTypes.func.isRequired,
+};

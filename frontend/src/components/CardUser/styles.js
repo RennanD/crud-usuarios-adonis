@@ -9,8 +9,13 @@ export const Avatar = styled.img`
   border: 2px solid #eee;
 `;
 
+export const Content = styled.div`
+  height: 70%;
+`;
+
 export const ActionView = styled.div`
   margin: 5px 0;
+  bottom: 0;
 `;
 
 export const ActionButton = styled(Button)`
